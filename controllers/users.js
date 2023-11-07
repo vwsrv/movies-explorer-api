@@ -1,6 +1,6 @@
-import User from '../models/user.js';
-import { STATUS } from '../utils/constants.js';
-import NotFoundError from '../errors/NotFoundError.js';
+import User from '../models/user';
+import { STATUS } from '../utils/constants';
+import NotFoundError from '../errors/NotFoundError';
 import ValidationError from '../errors/ValidationError.js';
 
 export const getCurrentUserInfo = (req, res, next) => {
