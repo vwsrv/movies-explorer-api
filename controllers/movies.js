@@ -44,8 +44,8 @@ export const createFilm = (req, res, next) => {
 };
 
 export const deleteFilm = (req, res, next) => {
-  const { cardId } = req.params;
-  Film.deleteOne(cardId)
+  const { filmId } = req.params;
+  Film.deleteOne(filmId)
     .then((film) => {
       if (!film) {
         throw new NotFoundError('Указан несуществующий _id фильма.');
