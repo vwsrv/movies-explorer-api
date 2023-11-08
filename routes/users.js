@@ -1,5 +1,5 @@
-import { Router } from "express";
-import { getCurrentUserInfo, updateUserInfo } from "../controllers/users";
+import { Router } from 'express';
+import { getCurrentUserInfo, updateUserInfo } from '../controllers/users';
 
 const usersRouter = Router();
 
