@@ -44,8 +44,7 @@ export const createFilm = (req, res, next) => {
 };
 
 export const deleteFilm = (req, res, next) => {
-  const { filmId } = req.params;
-  Film.deleteOne(filmId)
+  Film.findById(req.params.id)
     .then((film) => {
       if (!film) {
         throw new NotFoundError('Указан несуществующий _id фильма.');
@@ -55,8 +54,8 @@ export const deleteFilm = (req, res, next) => {
       }
       return Film.deleteOne(film);
     })
-    .then((card) => {
-      res.status(STATUS.OK).send(card);
+    .then((film) => {
+      res.status(STATUS.OK).send(film);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
