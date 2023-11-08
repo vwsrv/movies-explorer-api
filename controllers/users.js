@@ -1,7 +1,7 @@
 import User from '../models/user';
 import { STATUS } from '../utils/constants';
 import NotFoundError from '../errors/NotFoundError';
-import ValidationError from '../errors/ValidationError.js';
+import ValidationError from '../errors/ValidationError';
 
 export const getCurrentUserInfo = (req, res, next) => {
   User.findById(req.user._id)
