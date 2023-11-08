@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import helmet from 'helmet';
 import express, { json } from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
@@ -14,10 +16,10 @@ import NotFoundError from './errors/NotFoundError';
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const MONGO_URL = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/bitfilmsdb';
-
 const app = express();
 app.use(json());
 app.use(cookieParser());
+app.use(helmet());
 app.use(requestLogger);
 app.use(authRouter);
 app.use(Auth);
