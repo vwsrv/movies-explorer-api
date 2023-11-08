@@ -71,4 +71,5 @@ const filmSchema = new mongoose.Schema({
   },
 }, { versionKey: false, timestamps: true });
 const Film = mongoose.model('film', filmSchema);
+
 export default Film;
