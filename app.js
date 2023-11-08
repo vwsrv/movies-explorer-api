@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import { errors } from 'celebrate';
+import cors from 'cors';
 import usersRouter from './routes/users';
 import moviesRouter from './routes/movies';
 import authRouter from './routes/auth';
@@ -20,6 +21,12 @@ const app = express();
 app.use(json());
 app.use(cookieParser());
 app.use(helmet());
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:3001',
+    'https://vawssrv.nomoredomainsmonster.ru', 'https://api.vawssrv.nomoredomainsmonster.ru'],
+  credentials: true,
+  maxAge: 3600,
+}));
 app.use(requestLogger);
 app.use(authRouter);
 app.use(Auth);
