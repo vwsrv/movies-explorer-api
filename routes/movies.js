@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { getFilms, createFilm, deleteFilm } from '../controllers/movies';
-import { createMovieValidationSchema, deleteMovieValidationSchema } from '../validations/movies';
+import { getFilms, createFilm, deleteFilm } from '../controllers/movies.js';
+import { createMovieValidationSchema, deleteMovieValidationSchema } from '../validations/movies.js';
 
 const moviesRouter = Router();
 
