@@ -1,6 +1,6 @@
 import { celebrate } from 'celebrate';
 import Joi from 'joi';
-import { urlPattern } from '../utils/constants';
+import { urlPattern } from '../utils/constants.js';
 
 export const createMovieValidationSchema = celebrate({
   body: Joi.object().keys({
