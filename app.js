@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import helmet from 'helmet';
 import express, { json } from 'express';
 import dotenv from 'dotenv';
@@ -5,13 +6,13 @@ import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import { errors } from 'celebrate';
 import cors from 'cors';
-import usersRouter from './routes/users.js';
-import moviesRouter from './routes/movies.js';
-import authRouter from './routes/auth.js';
-import errorHandler from './middleware/errorsHandler.js';
-import Auth from './middleware/auth.js';
-import { errorLogger, requestLogger } from './middleware/logger.js';
-import NotFoundError from './errors/NotFoundError.js';
+import usersRouter from './routes/users';
+import moviesRouter from './routes/movies';
+import authRouter from './routes/auth';
+import errorHandler from './middleware/errorsHandler';
+import Auth from './middleware/auth';
+import { errorLogger, requestLogger } from './middleware/logger';
+import NotFoundError from './errors/NotFoundError';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;

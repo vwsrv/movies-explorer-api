@@ -1,8 +1,8 @@
-import Film from '../models/movie.js';
-import { STATUS } from '../utils/constants.js';
-import CastError from '../errors/CastError.js';
-import NotFoundError from '../errors/NotFoundError.js';
-import ValidationError from '../errors/ValidationError.js';
+import Film from '../models/movie';
+import { STATUS } from '../utils/constants';
+import CastError from '../errors/CastError';
+import NotFoundError from '../errors/NotFoundError';
+import ValidationError from '../errors/ValidationError';
 
 export const getFilms = (req, res, next) => {
   const userId = req.user._id;

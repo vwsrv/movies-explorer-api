@@ -1,6 +1,6 @@
 import { celebrate } from 'celebrate';
 import Joi from 'joi';
-import { emailAngular } from '../utils/constants.js';
+import { emailAngular } from '../utils/constants';
 
 const updateUserInfoValidationSchema = celebrate({
   body: Joi.object().keys({
