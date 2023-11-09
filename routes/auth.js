@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createUser, loginUser, logoutUser } from '../controllers/auth';
+import { createUser, loginUser, logoutUser } from '../controllers/auth.js';
 
 const authRouter = Router();
 authRouter.post('/signup', createUser);

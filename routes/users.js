@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { getCurrentUserInfo, updateUserInfo } from '../controllers/users';
-import updateUserInfoValidationSchema from '../validations/users';
+import { getCurrentUserInfo, updateUserInfo } from '../controllers/users.js';
+import updateUserInfoValidationSchema from '../validations/users.js';
 
 const usersRouter = Router();
 

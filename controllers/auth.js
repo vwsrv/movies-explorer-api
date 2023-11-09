@@ -1,10 +1,10 @@
 import bcrypt from 'bcryptjs';
-import User from '../models/user';
-import AuthError from '../errors/AuthError';
-import ValidationError from '../errors/ValidationError';
-import AlreadyExists from '../errors/AlreadyExists';
-import generateToken from '../utils/token';
-import { STATUS } from '../utils/constants';
+import User from '../models/user.js';
+import AuthError from '../errors/AuthError.js';
+import ValidationError from '../errors/ValidationError.js';
+import AlreadyExists from '../errors/AlreadyExists.js';
+import generateToken from '../utils/token.js';
+import { STATUS } from '../utils/constants.js';
 
 export const createUser = (req, res, next) => {
   const { email, password, name } = req.body;
