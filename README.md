@@ -1,3 +1,3 @@
 # movies-explorer-api
 # https - адрес - http://api.vawssrv.nomoredomainsmonster.ru/
-# IP - 62.84.122.231
+# IP - 84.252.142.16
