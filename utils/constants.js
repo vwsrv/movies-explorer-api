@@ -1,3 +1,4 @@
+import rateLimit from 'express-rate-limit';
 import { constants as HTTP_STATUS } from 'node:http2';
 
 export const urlPattern = /^https?:\/\/[a-z0-9]+([.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
@@ -12,3 +13,7 @@ export const STATUS = {
   SEVER_ERR: HTTP_STATUS.HTTP_STATUS_INTERNAL_SERVER_ERROR, // 500
   FORBIDDEN: HTTP_STATUS.HTTP_STATUS_FORBIDDEN, // 403
 };
+export const limitter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+});

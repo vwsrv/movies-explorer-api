@@ -8,12 +8,14 @@ import cors from 'cors';
 import router from './routes/index.js';
 import errorHandler from './middleware/errorsHandler.js';
 import { errorLogger, requestLogger } from './middleware/logger.js';
+import { limitter } from './utils/constants.js';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const MONGO_URL = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/bitfilmsdb';
 const app = express();
 app.use(json());
+app.use(limitter);
 app.use(cookieParser());
 app.use(helmet());
 app.use(cors({
