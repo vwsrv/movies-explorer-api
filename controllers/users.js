@@ -2,6 +2,7 @@ import User from '../models/user.js';
 import { STATUS } from '../utils/constants.js';
 import NotFoundError from '../errors/NotFoundError.js';
 import ValidationError from '../errors/ValidationError.js';
+import AlreadyExists from '../errors/AlreadyExists.js';
 
 export const getCurrentUserInfo = (req, res, next) => {
   User.findById(req.user._id)
@@ -17,7 +18,7 @@ export const updateUserInfo = (req, res, next) => {
   User.findByIdAndUpdate(
     req.user._id,
     { email, name },
-    { new: true, runValidators: true, upsert: true },
+    { new: true, runValidators: true },
   )
     .orFail(() => {
       throw new NotFoundError('Пользователя с таким _id не существует');
@@ -28,6 +29,9 @@ export const updateUserInfo = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         return next(new ValidationError('Переданы некорретные данные для обновления информации о пользователе'));
+      }
+      if (err.code === 11000) {
+        return next(new AlreadyExists('Такой пользователь уже зарегистрирован.'));
       }
       return next(err);
     });

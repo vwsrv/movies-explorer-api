@@ -5,13 +5,9 @@ import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import { errors } from 'celebrate';
 import cors from 'cors';
-import usersRouter from './routes/users.js';
-import moviesRouter from './routes/movies.js';
-import authRouter from './routes/auth.js';
+import router from './routes/index.js';
 import errorHandler from './middleware/errorsHandler.js';
-import Auth from './middleware/auth.js';
 import { errorLogger, requestLogger } from './middleware/logger.js';
-import NotFoundError from './errors/NotFoundError.js';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -27,13 +23,7 @@ app.use(cors({
   maxAge: 3600,
 }));
 app.use(requestLogger);
-app.use(authRouter);
-app.use(Auth);
-app.use(usersRouter);
-app.use(moviesRouter);
-app.use('*', (req, res, next) => {
-  next(new NotFoundError('Такой страницы не существует.'));
-});
+app.use(router);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);

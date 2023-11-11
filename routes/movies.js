@@ -4,8 +4,8 @@ import { createMovieValidationSchema, deleteMovieValidationSchema } from '../val
 
 const moviesRouter = Router();
 
-moviesRouter.get('/movies', getFilms);
-moviesRouter.post('/movies', createMovieValidationSchema, createFilm);
-moviesRouter.delete('/movies/:id', deleteMovieValidationSchema, deleteFilm);
+moviesRouter.get('/', getFilms);
+moviesRouter.post('/', createMovieValidationSchema, createFilm);
+moviesRouter.delete('/:id', deleteMovieValidationSchema, deleteFilm);
 
 export default moviesRouter;
