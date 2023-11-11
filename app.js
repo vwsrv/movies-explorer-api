@@ -5,19 +5,17 @@ import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import { errors } from 'celebrate';
 import cors from 'cors';
-import usersRouter from './routes/users.js';
-import moviesRouter from './routes/movies.js';
-import authRouter from './routes/auth.js';
+import router from './routes/index.js';
 import errorHandler from './middleware/errorsHandler.js';
-import Auth from './middleware/auth.js';
 import { errorLogger, requestLogger } from './middleware/logger.js';
-import NotFoundError from './errors/NotFoundError.js';
+import { limitter } from './utils/constants.js';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
 const MONGO_URL = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/bitfilmsdb';
 const app = express();
 app.use(json());
+app.use(limitter);
 app.use(cookieParser());
 app.use(helmet());
 app.use(cors({
@@ -27,13 +25,7 @@ app.use(cors({
   maxAge: 3600,
 }));
 app.use(requestLogger);
-app.use(authRouter);
-app.use(Auth);
-app.use(usersRouter);
-app.use(moviesRouter);
-app.use('*', (req, res, next) => {
-  next(new NotFoundError('Такой страницы не существует.'));
-});
+app.use(router);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
