@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import authRouter from './auth';
-import usersRouter from './users';
-import moviesRouter from './movies';
-import NotFoundError from '../errors/NotFoundError';
-import Auth from '../middleware/auth';
+import authRouter from './auth.js';
+import usersRouter from './users.js';
+import moviesRouter from './movies.js';
+import NotFoundError from '../errors/NotFoundError.js';
+import Auth from '../middleware/auth.js';
 
 const router = Router();
 
