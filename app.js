@@ -20,7 +20,7 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(cors({
   origin: ['http://localhost:3000', 'http://localhost:3001',
-    'https://vawssrv.nomoredomainsmonster.ru', 'https://api.vawssrv.nomoredomainsmonster.ru'],
+    'https://vavssrv.nomoredomainsmonster.ru', 'https://api.vavssrv.nomoredomainsmonster.ru'],
   credentials: true,
   maxAge: 3600,
 }));
