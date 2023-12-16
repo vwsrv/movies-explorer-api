@@ -15,5 +15,5 @@ export const STATUS = {
 };
 export const limitter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 100,
+  max: 1000,
 });
