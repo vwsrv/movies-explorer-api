@@ -51,5 +51,5 @@ export const loginUser = (req, res, next) => {
 
 export const logoutUser = (req, res) => {
   res.clearCookie('jwtToken');
-  res.redirect('/signin');
+  res.redirect('http://vavssrv.nomoredomainsmonster.ru');
 };
