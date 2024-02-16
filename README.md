@@ -37,7 +37,7 @@
 
 ## About The Project
 
-This project was made using the NodeJS library and deployed on Ubuntu 20.04 LTS.
+This project was made using the ExpressJS library and deployed on Ubuntu 20.04 LTS.
 Each stage of the project was discussed in PR with a mentor.
 
 ## Built With
